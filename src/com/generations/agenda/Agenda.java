@@ -10,15 +10,15 @@ public class Agenda {
     protected int LIMITE_CONTACTOS = 10;
 
     public void anadirContacto(String nombre, String apellido, String telefono) {
-        if (agendaLlena()) {
+        if (agendaLlena()) {//Si la agenda esta llena, mostrar ese mensaje
             System.out.println("\n✖ Error ✖ | Agenda llena. No se pueden añadir más contactos.");
         }
         else
         {
             String contacto = nombre + " " + apellido;
-            if (existeContacto(contacto)) {
+            if (existeContacto(contacto)) {//Si el contacto existe, mostrar ese mensaje
                 System.out.println("\n✖ Error ✖ | El contacto " + nombre + " " + apellido + " ya existe.");
-            } else {
+            } else {//En caso contrario, añadirlo en el HashMap
                 contactos.put(nombre + " " + apellido, new Contacto(nombre, apellido, telefono));
                 System.out.println("\nContacto añadido exitosamente");
             }
@@ -76,7 +76,7 @@ public class Agenda {
     }
 
     public void espaciosLibres() {
-        if (agendaLlena()) {//Si la agenda esta llena, mostrarlo
+        if (agendaLlena()) {//Si la agenda esta llena, mostrar ese mensaje
             System.out.println("\nAgenda llena. No se pueden añadir más contactos.");
         }else {//En caso contrario, mostrar cuantos espacios quedan libres
             int espacios = LIMITE_CONTACTOS - contactos.size();
