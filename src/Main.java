@@ -6,7 +6,8 @@ public class Main {
     public static void main(String[] args) {
         Agenda agenda = new Agenda();
         Scanner scanner = new Scanner(System.in);
-        int opcion;
+        int opcion = 0;
+        String nombre = "", apellido = "", telefono = "";
         System.out.println("----AGENDA DE 10 CONTACTOS----");
         do {
             System.out.println("\n***Menú***\n");
@@ -19,26 +20,26 @@ public class Main {
             System.out.println("7. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
-            scanner.nextLine();  // Limpiar el buffer
+            scanner.nextLine();  // Cambiar Scanner a nextLine()
 
             switch (opcion) {
                 case 1:
                     System.out.println("\n+++Añadir nuevo contacto+++\n");
                     System.out.print("Ingrese el nombre del contacto: ");
-                    String nombre = scanner.nextLine();
+                    nombre = scanner.nextLine();
                     System.out.print("Ingrese el apellido del contacto: ");
-                    String apellido = scanner.nextLine();
+                    apellido = scanner.nextLine();
                     System.out.print("Ingrese el teléfono del contacto: ");
-                    String telefono = scanner.nextLine();
+                    telefono = scanner.nextLine();
                     if(nombre==""||apellido==""||telefono==""){
-                        System.out.println("Llene todos los campos\nRegresando al menú");
+                        System.out.println("\n✖ Error ✖ | Llene todos los campos\nRegresando al menú");
                     }
                     else{
                         agenda.anadirContacto(nombre, apellido, telefono);
                     }
                     break;
                 case 2:
-                    System.out.println("\n+++Listar contactos+++\n");
+                    System.out.println("\n+++Listar contactos+++");
                     agenda.listarContactos();
                     break;
                 case 3:
@@ -69,7 +70,7 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("\n+++Espacios libres de la agenda+++\n");
-                    System.out.println("Espacios libres: " + agenda.espaciosLibres());
+                    agenda.espaciosLibres();
                     break;
                 case 7:
                     System.out.println("\n---Programa terminado. Gracias por usar la agenda---");

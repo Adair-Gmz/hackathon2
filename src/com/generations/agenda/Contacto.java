@@ -40,6 +40,6 @@ public class Contacto {
     //Usar toString para dar un formato de como se mostrará la información en pantalla
     @Override
     public String toString() {
-        return "Contacto: " + nombre + " " + apellido + "\nTeléfono: " + telefono;
+        return "\nContacto: " + nombre + " " + apellido + "\nTeléfono: " + telefono;
     }
 }
