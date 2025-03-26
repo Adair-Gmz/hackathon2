@@ -16,14 +16,16 @@ public class Agenda {
         else
         {
             String contacto = nombre + " " + apellido;
+            //Volver minuscula para evitar datos duplicados por mayusculas y minusculas
+            contacto = contacto.toLowerCase();
             if (existeContacto(contacto)) {//Si el contacto existe, mostrar ese mensaje
                 System.out.println("\n✖ Error ✖ | El contacto " + nombre + " " + apellido + " ya existe.");
             } else {//En caso contrario, añadirlo en el HashMap
-                //Volver todo a minuscula
-                nombre = nombre.toLowerCase();
-                apellido = apellido.toLowerCase();
+                //Volver la primer letra de nombre y apellido en mayuscula
+                nombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1);
+                apellido = apellido.substring(0, 1).toUpperCase() + apellido.substring(1);
                 //Añadir al HashMap
-                contactos.put(nombre + " " + apellido, new Contacto(nombre, apellido, telefono));
+                contactos.put(contacto, new Contacto(nombre, apellido, telefono));
                 System.out.println("\nContacto añadido exitosamente");
             }
         }
@@ -45,6 +47,7 @@ public class Agenda {
 
     public void buscarContacto(String nombre, String apellido) {
         String contacto = nombre + " " + apellido;
+        contacto = contacto.toLowerCase();
         if (existeContacto(contacto)) {//Si el contacto existe, se muestra el contacto
             System.out.println("\nContacto encontrado");
             System.out.println(contactos.get(contacto));
@@ -55,6 +58,7 @@ public class Agenda {
 
     public void eliminarContacto(String nombre, String apellido) {
         String contacto = nombre + " " + apellido;
+        contacto = contacto.toLowerCase();
         if (existeContacto(contacto)) {//Si el contacto existe, eliminarlo
             contactos.remove(contacto);
             System.out.println("\nContacto eliminado exitosamente");
@@ -65,6 +69,7 @@ public class Agenda {
 
     public void modificarTelefono(String nombre, String apellido, String telefonoNuevo) {
         String contacto = nombre + " " + apellido;
+        contacto = contacto.toLowerCase();
         if (existeContacto(contacto)) { //Si el contacto existe, modificarlo
             Contacto cambio = contactos.get(contacto);
             cambio.setTelefono(telefonoNuevo);
