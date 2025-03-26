@@ -40,7 +40,7 @@ public class Contacto {
     //Usar toString para dar un formato de como se mostrará la información en pantalla
     @Override
     public String toString() {
-        //Bolver la primer letra mayuscula del nombre y apellido
+        //Volver la primer letra mayuscula del nombre y apellido
         String formatoNombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1);
         String formatoApellido = apellido.substring(0, 1).toUpperCase() + apellido.substring(1);
         return "\nContacto: " + formatoNombre + " " + formatoApellido + "\nTeléfono: " + telefono;

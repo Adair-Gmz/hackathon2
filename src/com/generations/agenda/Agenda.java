@@ -76,7 +76,7 @@ public class Agenda {
 
     public boolean agendaLlena() {
         //Si la agenda esta llena, retornarlo como True
-        return contactos.size() >= LIMITE_CONTACTOS;
+        return contactos.size() == LIMITE_CONTACTOS;
     }
 
     public void espaciosLibres() {
