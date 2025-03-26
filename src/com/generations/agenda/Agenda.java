@@ -19,6 +19,10 @@ public class Agenda {
             if (existeContacto(contacto)) {//Si el contacto existe, mostrar ese mensaje
                 System.out.println("\n✖ Error ✖ | El contacto " + nombre + " " + apellido + " ya existe.");
             } else {//En caso contrario, añadirlo en el HashMap
+                //Volver todo a minuscula
+                nombre = nombre.toLowerCase();
+                apellido = apellido.toLowerCase();
+                //Añadir al HashMap
                 contactos.put(nombre + " " + apellido, new Contacto(nombre, apellido, telefono));
                 System.out.println("\nContacto añadido exitosamente");
             }
