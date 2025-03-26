@@ -21,6 +21,9 @@ public class Agenda {
             if (existeContacto(contacto)) {//Si el contacto existe, mostrar ese mensaje
                 System.out.println("\n✖ Error ✖ | El contacto " + nombre + " " + apellido + " ya existe.");
             } else {//En caso contrario, añadirlo en el HashMap
+                //Volver nombre y apellido a minuscula
+                nombre = nombre.toLowerCase();
+                apellido = apellido.toLowerCase();
                 //Volver la primer letra de nombre y apellido en mayuscula
                 nombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1);
                 apellido = apellido.substring(0, 1).toUpperCase() + apellido.substring(1);
