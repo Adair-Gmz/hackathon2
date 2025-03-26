@@ -5,13 +5,9 @@ import java.util.Map;
 //Esta clase Agenda.java contendra los métodos que se usarán para el menú de Main.java
 public class Agenda {
     //String será la key y Contacto corresponde a Contacto.java
-    protected Map<String, Contacto> contactos;
+    //Usar HashMap evitará que existan datos duplicados en la agenda
+    protected Map<String, Contacto> contactos = new HashMap<>();
     protected int LIMITE_CONTACTOS = 10;
-
-    public Agenda() {
-        //Usar HashMap evitará que existan datos duplicados en la agenda
-        contactos = new HashMap<>();
-    }
 
     public void anadirContacto(String nombre, String apellido, String telefono) {
         if (agendaLlena()) {
