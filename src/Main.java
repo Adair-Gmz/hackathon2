@@ -25,11 +25,11 @@ public class Main {
             switch (opcion) {
                 case 1:
                     System.out.println("\n+++Añadir nuevo contacto+++\n");
-                    System.out.print("Ingrese el nombre del contacto: ");
+                    System.out.print("Ingrese el nombre del nuevo contacto: ");
                     nombre = scanner.nextLine();
-                    System.out.print("Ingrese el apellido del contacto: ");
+                    System.out.print("Ingrese el apellido del nuevo contacto: ");
                     apellido = scanner.nextLine();
-                    System.out.print("Ingrese el teléfono del contacto: ");
+                    System.out.print("Ingrese el teléfono del nuevo contacto: ");
                     telefono = scanner.nextLine();
                     if(nombre==""||apellido==""||telefono==""){
                         System.out.println("\n✖ Error ✖ | Llene todos los campos\nRegresando al menú");
@@ -44,9 +44,9 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("\n+++Buscar un contacto+++\n");
-                    System.out.print("Ingrese el nombre del contacto a consultar: ");
+                    System.out.print("Ingrese el nombre del contacto a buscar: ");
                     nombre = scanner.nextLine();
-                    System.out.print("Ingrese el apellido del contacto a consultar: ");
+                    System.out.print("Ingrese el apellido del contacto a buscar: ");
                     apellido = scanner.nextLine();
                     agenda.buscarContacto(nombre, apellido);
                     break;
