@@ -3,10 +3,10 @@ import java.util.HashMap;
 
 //Esta clase Agenda.java contendra los métodos que se usarán para el menú de Main.java
 public class Agenda {
-    //String será la key y Contacto corresponde a Contacto.java
     //Usar HashMap evitará que existan datos duplicados en la agenda
+    //String será la key y Contacto corresponde a Contacto.java
     protected HashMap<String, Contacto> contactos = new HashMap<>();
-    protected int LIMITE_CONTACTOS = 10;
+    protected int limite_contactos = 10;
 
     public void anadirContacto(String nombre, String apellido, String telefono) {
         if (agendaLlena()) {//Si la agenda esta llena, mostrar ese mensaje
@@ -83,15 +83,20 @@ public class Agenda {
 
     public boolean agendaLlena() {
         //Si la agenda esta llena, retornarlo como True
-        return contactos.size() == LIMITE_CONTACTOS;
+        return contactos.size() >= limite_contactos;
     }
 
     public void espaciosLibres() {
         if (agendaLlena()) {//Si la agenda esta llena, mostrar ese mensaje
             System.out.println("\nAgenda llena. No se pueden añadir más contactos.");
         }else {//En caso contrario, mostrar cuantos espacios quedan libres
-            int espacios = LIMITE_CONTACTOS - contactos.size();
+            int espacios = limite_contactos - contactos.size();
             System.out.println("\nLa agenda aún tiene " + espacios + " espacios libres");
         }
+    }
+
+    public void nuevoLimite(int limite){
+       limite_contactos = limite; //Establecer nuevo límite de contactos
+       System.out.println("\nEl nuevo límite de contactos es: " + limite_contactos);
     }
 }

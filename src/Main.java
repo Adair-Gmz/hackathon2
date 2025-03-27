@@ -17,7 +17,8 @@ public class Main {
             System.out.println("4. Eliminar contacto");
             System.out.println("5. Modificar teléfono");
             System.out.println("6. Mostrar espacios libres");
-            System.out.println("7. Salir");
+            System.out.println("7. Nuevo límite de la agenda");
+            System.out.println("8. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
             scanner.nextLine();  // Cambiar Scanner a nextLine()
@@ -73,13 +74,24 @@ public class Main {
                     agenda.espaciosLibres();
                     break;
                 case 7:
+                    System.out.println("\n+++Nuevo límite de la agenda+++\n");
+                    System.out.print("Ingrese el nuevo limite: ");
+                    int limite = scanner.nextInt();
+                    if(limite>0){
+                        agenda.nuevoLimite(limite);
+                    }
+                    else{
+                        System.out.println("✖ Error ✖ | Ingrese un valor mayor a cero");
+                    }
+                    break;
+                case 8:
                     System.out.println("\n---Programa terminado. Gracias por usar la agenda---");
                     break;
                 default:
                     System.out.println("\nOpción no válida, ingrese una opción del 1-7");
                     break;
             }
-        } while (opcion != 7);
+        } while (opcion != 8);
 
         scanner.close();
     }
